@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Family Display</title>
+    <script>
+      try {
+        const storedTheme = JSON.parse(window.localStorage.getItem("family-display-settings-v1") || "{}").theme;
+        document.documentElement.dataset.theme = storedTheme === "light" || storedTheme === "dark" ? storedTheme : "dark";
+      } catch {
+        document.documentElement.dataset.theme = "dark";
+      }
+    </script>
+    <link rel="stylesheet" href="./styles.css?v=44">
+    <link rel="stylesheet" href="./weather-theme.css?v=44">
+  </head>
+  <body>
+    <main class="app-shell" aria-live="polite">
+      <section class="top-bar">
+        <div>
+          <p class="eyeline" id="today-label">Today</p>
+          <h1 id="screen-title">Weather</h1>
+        </div>
+        <div class="status-block">
+          <span id="connection-status">Loading</span>
+          <time id="local-time">--:--</time>
+        </div>
+      </section>
+
+      <section class="screen screen-active" id="weather-screen" data-screen="weather">
+        <div class="weather-grid" id="weather-grid"></div>
+      </section>
+
+      <section class="screen" id="caltrain-screen" data-screen="caltrain">
+        <div class="caltrain-layout" id="caltrain-layout"></div>
+      </section>
+
+      <section class="screen" id="calendar-screen" data-screen="calendar">
+        <div class="calendar-layout" id="calendar-layout"></div>
+      </section>
+
+      <section class="screen" id="settings-screen" data-screen="settings">
+        <form class="settings-panel" id="settings-form">
+          <div class="setting-row">
+            <div>
+              <h2>Settings</h2>
+              <p>Display rotation</p>
+            </div>
+            <label class="switch">
+              <input id="auto-rotate-enabled" type="checkbox">
+              <span class="switch-track"></span>
+            </label>
+          </div>
+          <label class="setting-field" for="auto-rotate-seconds">
+            <span>Rotation interval</span>
+            <input id="auto-rotate-seconds" inputmode="numeric" min="10" max="600" step="5" type="number">
+          </label>
+          <fieldset class="setting-field theme-field">
+            <legend>Theme</legend>
+            <div class="segmented-control" role="group" aria-label="Theme">
+              <button class="segment-button" data-theme-option="light" type="button">Light</button>
+              <button class="segment-button" data-theme-option="dark" type="button">Dark</button>
+              <button class="segment-button" data-theme-option="auto" type="button">Auto</button>
+            </div>
+          </fieldset>
+          <div class="settings-actions">
+            <button class="action-button" type="submit">Save</button>
+            <button class="action-button action-button-secondary" id="reset-settings" type="button">Reset</button>
+          </div>
+        </form>
+      </section>
+
+      <nav class="screen-nav" aria-label="Display modes">
+        <button class="nav-button nav-button-active" data-target="weather" type="button">Weather</button>
+        <button class="nav-button" data-target="caltrain" type="button">Caltrain</button>
+        <button class="nav-button" data-target="calendar" type="button">Calendar</button>
+        <button class="nav-button" data-target="settings" type="button">Settings</button>
+      </nav>
+      <div class="device-ip" id="device-ip">IP --</div>
+      <div class="toast" id="save-toast" hidden>Settings saved</div>
+    </main>
+
+    <script src="./app-config.js?v=44"></script>
+    <script src="./device-info.js?v=44"></script>
+    <script src="./app.js?v=44"></script>
+  </body>
+</html>

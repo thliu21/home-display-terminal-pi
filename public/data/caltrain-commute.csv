@@ -1,0 +1,39 @@
+panel,origin,destination,depart,arrive,duration,duration_minutes,train,service,color,text_color
+Morning northbound,Sunnyvale,San Francisco,05:22,06:26,1h 04m,64,103,Local,#dcddde,#000000
+Morning northbound,Sunnyvale,San Francisco,05:57,06:53,56m,56,401,Limited,#99d7dc,#000000
+Morning northbound,Sunnyvale,San Francisco,06:12,07:16,1h 04m,64,105,Local,#dcddde,#000000
+Morning northbound,Sunnyvale,San Francisco,06:32,07:22,50m,50,503,Express,#ce202f,#ffffff
+Morning northbound,Sunnyvale,San Francisco,06:42,07:46,1h 04m,64,107,Local,#dcddde,#000000
+Morning northbound,Sunnyvale,San Francisco,06:57,07:53,56m,56,405,Limited,#99d7dc,#000000
+Morning northbound,Sunnyvale,San Francisco,07:12,08:16,1h 04m,64,109,Local,#dcddde,#000000
+Morning northbound,Sunnyvale,San Francisco,07:32,08:22,50m,50,507,Express,#ce202f,#ffffff
+Morning northbound,Sunnyvale,San Francisco,07:42,08:46,1h 04m,64,111,Local,#dcddde,#000000
+Morning northbound,Sunnyvale,San Francisco,07:57,08:53,56m,56,409,Limited,#99d7dc,#000000
+Morning northbound,Sunnyvale,San Francisco,08:12,09:16,1h 04m,64,113,Local,#dcddde,#000000
+Morning northbound,Sunnyvale,San Francisco,08:32,09:22,50m,50,511,Express,#ce202f,#ffffff
+Morning northbound,Sunnyvale,San Francisco,08:42,09:46,1h 04m,64,115,Local,#dcddde,#000000
+Morning northbound,Sunnyvale,San Francisco,08:57,09:53,56m,56,413,Limited,#99d7dc,#000000
+Morning northbound,Sunnyvale,San Francisco,09:12,10:16,1h 04m,64,117,Local,#dcddde,#000000
+Morning northbound,Sunnyvale,San Francisco,09:42,10:46,1h 04m,64,119,Local,#dcddde,#000000
+Evening southbound,San Francisco,Sunnyvale,15:20,16:09,49m,49,514,Express,#ce202f,#ffffff
+Evening southbound,San Francisco,Sunnyvale,15:25,16:28,1h 03m,63,142,Local,#dcddde,#000000
+Evening southbound,San Francisco,Sunnyvale,15:48,16:43,55m,55,416,Limited,#99d7dc,#000000
+Evening southbound,San Francisco,Sunnyvale,15:55,16:58,1h 03m,63,144,Local,#dcddde,#000000
+Evening southbound,San Francisco,Sunnyvale,16:20,17:09,49m,49,518,Express,#ce202f,#ffffff
+Evening southbound,San Francisco,Sunnyvale,16:25,17:28,1h 03m,63,146,Local,#dcddde,#000000
+Evening southbound,San Francisco,Sunnyvale,16:48,17:43,55m,55,420,Limited,#99d7dc,#000000
+Evening southbound,San Francisco,Sunnyvale,16:55,17:58,1h 03m,63,148,Local,#dcddde,#000000
+Evening southbound,San Francisco,Sunnyvale,17:20,18:09,49m,49,522,Express,#ce202f,#ffffff
+Evening southbound,San Francisco,Sunnyvale,17:25,18:28,1h 03m,63,150,Local,#dcddde,#000000
+Evening southbound,San Francisco,Sunnyvale,17:48,18:43,55m,55,424,Limited,#99d7dc,#000000
+Evening southbound,San Francisco,Sunnyvale,17:55,18:58,1h 03m,63,152,Local,#dcddde,#000000
+Evening southbound,San Francisco,Sunnyvale,18:20,19:09,49m,49,526,Express,#ce202f,#ffffff
+Evening southbound,San Francisco,Sunnyvale,18:25,19:28,1h 03m,63,154,Local,#dcddde,#000000
+Evening southbound,San Francisco,Sunnyvale,18:48,19:43,55m,55,428,Limited,#99d7dc,#000000
+Evening southbound,San Francisco,Sunnyvale,18:55,19:58,1h 03m,63,156,Local,#dcddde,#000000
+Evening southbound,San Francisco,Sunnyvale,19:25,20:28,1h 03m,63,158,Local,#dcddde,#000000
+Evening southbound,San Francisco,Sunnyvale,19:55,20:58,1h 03m,63,160,Local,#dcddde,#000000
+Evening southbound,San Francisco,Sunnyvale,20:25,21:28,1h 03m,63,162,Local,#dcddde,#000000
+Evening southbound,San Francisco,Sunnyvale,20:55,21:58,1h 03m,63,164,Local,#dcddde,#000000
+Evening southbound,San Francisco,Sunnyvale,21:25,22:28,1h 03m,63,166,Local,#dcddde,#000000
+Evening southbound,San Francisco,Sunnyvale,21:55,22:58,1h 03m,63,168,Local,#dcddde,#000000

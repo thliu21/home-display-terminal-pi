@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>6-Key Panel Debug</title>
+    <script>
+      try {
+        const storedTheme = JSON.parse(window.localStorage.getItem("family-display-settings-v1") || "{}").theme;
+        document.documentElement.dataset.theme = storedTheme === "light" || storedTheme === "dark" ? storedTheme : "dark";
+      } catch {
+        document.documentElement.dataset.theme = "dark";
+      }
+    </script>
+    <link rel="stylesheet" href="./styles.css?v=19">
+  </head>
+  <body>
+    <main class="debug-shell keyboard-debug-shell">
+      <section class="top-bar debug-top-bar">
+        <div>
+          <p class="eyeline">USB Keyboard / A B C D E F</p>
+          <h1>6-Key Panel Debug</h1>
+        </div>
+        <div class="status-block">
+          <span id="keyboard-focus-status">Ready</span>
+          <time id="keyboard-local-time">--:--</time>
+        </div>
+      </section>
+
+      <section class="keyboard-debug-grid" aria-live="polite">
+        <article class="keyboard-panel-card">
+          <div class="keyboard-panel" aria-label="6-key panel state">
+            <button class="keyboard-key" data-key="A" type="button">
+              <span>1</span>
+              <strong>A</strong>
+            </button>
+            <button class="keyboard-key" data-key="B" type="button">
+              <span>2</span>
+              <strong>B</strong>
+            </button>
+            <button class="keyboard-key" data-key="C" type="button">
+              <span>3</span>
+              <strong>C</strong>
+            </button>
+            <button class="keyboard-key" data-key="D" type="button">
+              <span>4</span>
+              <strong>D</strong>
+            </button>
+            <button class="keyboard-key" data-key="E" type="button">
+              <span>5</span>
+              <strong>E</strong>
+            </button>
+            <button class="keyboard-key" data-key="F" type="button">
+              <span>6</span>
+              <strong>F</strong>
+            </button>
+          </div>
+        </article>
+
+        <article class="debug-details keyboard-details">
+          <dl class="debug-readout keyboard-readout">
+            <div>
+              <dt>Pressed now</dt>
+              <dd id="keyboard-active-keys">None</dd>
+            </div>
+            <div>
+              <dt>Count</dt>
+              <dd id="keyboard-active-count">0</dd>
+            </div>
+            <div>
+              <dt>Last event</dt>
+              <dd id="keyboard-last-event">--</dd>
+            </div>
+            <div>
+              <dt>Last update</dt>
+              <dd id="keyboard-updated">--</dd>
+            </div>
+          </dl>
+          <p class="debug-hint" id="keyboard-hint">Press one or more panel buttons. Held keys stay lit; simultaneous keys are listed together.</p>
+        </article>
+
+        <article class="keyboard-counts-card">
+          <h2>Per-Key Counts</h2>
+          <div class="keyboard-count-grid">
+            <div data-count-key="A"><span>A</span><strong>0</strong><small>events</small></div>
+            <div data-count-key="B"><span>B</span><strong>0</strong><small>events</small></div>
+            <div data-count-key="C"><span>C</span><strong>0</strong><small>events</small></div>
+            <div data-count-key="D"><span>D</span><strong>0</strong><small>events</small></div>
+            <div data-count-key="E"><span>E</span><strong>0</strong><small>events</small></div>
+            <div data-count-key="F"><span>F</span><strong>0</strong><small>events</small></div>
+          </div>
+        </article>
+
+        <article class="debug-log-card keyboard-log-card">
+          <header class="debug-log-header">
+            <h2>Events</h2>
+            <button class="action-button action-button-secondary debug-clear-button" id="keyboard-clear-log" type="button">Clear</button>
+          </header>
+          <ol class="debug-log" id="keyboard-log"></ol>
+        </article>
+      </section>
+
+      <nav class="screen-nav debug-nav" aria-label="Debug navigation">
+        <a class="nav-button debug-link" href="./index.html">Display</a>
+        <a class="nav-button debug-link" href="./debug.html">GPIO</a>
+        <button class="nav-button nav-button-active" type="button">6-Key</button>
+      </nav>
+    </main>
+
+    <script src="./keyboard-debug.js?v=19"></script>
+  </body>
+</html>

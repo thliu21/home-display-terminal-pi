@@ -1,0 +1,15 @@
+[Unit]
+Description=Family Display local web and GPIO service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/pi/family-display/public
+ExecStart=/home/pi/family-display/scripts/systemd/start-server.sh
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

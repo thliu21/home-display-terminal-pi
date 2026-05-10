@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Family Display Kiosk
+Exec=/home/pi/family-display/scripts/kiosk/start-kiosk.sh
+Terminal=false

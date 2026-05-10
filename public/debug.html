@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GPIO Button Debug</title>
+    <script>
+      try {
+        const storedTheme = JSON.parse(window.localStorage.getItem("family-display-settings-v1") || "{}").theme;
+        document.documentElement.dataset.theme = storedTheme === "light" || storedTheme === "dark" ? storedTheme : "dark";
+      } catch {
+        document.documentElement.dataset.theme = "dark";
+      }
+    </script>
+    <link rel="stylesheet" href="./styles.css?v=19">
+  </head>
+  <body>
+    <main class="debug-shell">
+      <section class="top-bar debug-top-bar">
+        <div>
+          <p class="eyeline">GPIO17 / Physical Pin 11</p>
+          <h1>Button Debug</h1>
+        </div>
+        <div class="status-block">
+          <span id="debug-api-status">Connecting</span>
+          <time id="debug-local-time">--:--</time>
+        </div>
+      </section>
+
+      <section class="debug-grid" aria-live="polite">
+        <article class="debug-state-card" id="debug-state-card">
+          <p class="debug-state-label">Current state</p>
+          <div class="debug-state-value" id="debug-state-value">Checking</div>
+          <div class="debug-led" id="debug-led" aria-hidden="true"></div>
+        </article>
+
+        <article class="debug-details">
+          <dl class="debug-readout">
+            <div>
+              <dt>GPIO</dt>
+              <dd id="debug-pin">17</dd>
+            </div>
+            <div>
+              <dt>Electrical level</dt>
+              <dd id="debug-level">--</dd>
+            </div>
+            <div>
+              <dt>Backend</dt>
+              <dd id="debug-backend">--</dd>
+            </div>
+            <div>
+              <dt>Last update</dt>
+              <dd id="debug-updated">--</dd>
+            </div>
+          </dl>
+          <p class="debug-hint" id="debug-hint">Expected wiring: red wire to GPIO17, black wire to GND. Press the button and watch this page flip to Pressed.</p>
+        </article>
+
+        <article class="debug-log-card">
+          <header class="debug-log-header">
+            <h2>Events</h2>
+            <button class="action-button action-button-secondary debug-clear-button" id="debug-clear-log" type="button">Clear</button>
+          </header>
+          <ol class="debug-log" id="debug-log"></ol>
+        </article>
+      </section>
+
+      <nav class="screen-nav debug-nav" aria-label="Debug navigation">
+        <a class="nav-button debug-link" href="./index.html">Display</a>
+        <button class="nav-button nav-button-active" type="button">GPIO</button>
+        <a class="nav-button debug-link" href="./keyboard-debug.html">6-Key</a>
+      </nav>
+    </main>
+
+    <script src="./debug.js?v=18"></script>
+  </body>
+</html>

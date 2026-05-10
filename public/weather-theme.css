@@ -1,0 +1,125 @@
+/*
+  Weather card color themes.
+
+  Tweak these variables to change each weather card's top panel:
+  - --weather-accent: text color for condition, temperature, city, and local time
+  - --weather-bg-start: left/top gradient color
+  - --weather-bg-end: right/bottom gradient color
+  - --weather-bg-glow: soft highlight over the gradient
+*/
+
+.weather-card {
+  --weather-accent: #254b43;
+  --weather-bg-end: #e8f3ee;
+  --weather-bg-glow: rgba(255, 255, 255, 0.54);
+  --weather-bg-start: #c8ead9;
+}
+
+.weather-kind-sun {
+  --weather-accent: #8a6200;
+  --weather-bg-end: #fff1c5;
+  --weather-bg-glow: rgba(255, 255, 255, 0.62);
+  --weather-bg-start: #ffe18a;
+}
+
+.weather-kind-cloud-sun {
+  --weather-accent: #335d69;
+  --weather-bg-end: #eaf2d8;
+  --weather-bg-glow: rgba(255, 255, 255, 0.6);
+  --weather-bg-start: #c9e8f0;
+}
+
+.weather-kind-cloud {
+  --weather-accent: #425d68;
+  --weather-bg-end: #e6eef4;
+  --weather-bg-glow: rgba(255, 255, 255, 0.52);
+  --weather-bg-start: #bdd2dd;
+}
+
+.weather-kind-drizzle,
+.weather-kind-rain {
+  --weather-accent: #075c78;
+  --weather-bg-end: #d9f3f8;
+  --weather-bg-glow: rgba(255, 255, 255, 0.46);
+  --weather-bg-start: #8bd3e6;
+}
+
+.weather-kind-snow,
+.weather-kind-sleet {
+  --weather-accent: #33627f;
+  --weather-bg-end: #f0f7ff;
+  --weather-bg-glow: rgba(255, 255, 255, 0.68);
+  --weather-bg-start: #c7e5ff;
+}
+
+.weather-kind-storm {
+  --weather-accent: #37315f;
+  --weather-bg-end: #e6e1f0;
+  --weather-bg-glow: rgba(255, 255, 255, 0.4);
+  --weather-bg-start: #a9a6c8;
+}
+
+.weather-kind-fog {
+  --weather-accent: #4b5b56;
+  --weather-bg-end: #eef0ea;
+  --weather-bg-glow: rgba(255, 255, 255, 0.58);
+  --weather-bg-start: #cfd7d2;
+}
+
+html[data-theme="dark"] .weather-card {
+  --weather-accent: #b8ddd4;
+  --weather-bg-end: #172521;
+  --weather-bg-glow: rgba(184, 221, 212, 0.1);
+  --weather-bg-start: #20352f;
+}
+
+html[data-theme="dark"] .weather-kind-sun {
+  --weather-accent: #ffd36b;
+  --weather-bg-end: #2f2815;
+  --weather-bg-glow: rgba(255, 211, 107, 0.18);
+  --weather-bg-start: #51411a;
+}
+
+html[data-theme="dark"] .weather-kind-cloud-sun {
+  --weather-accent: #b7d8d8;
+  --weather-bg-end: #1a2b2f;
+  --weather-bg-glow: rgba(255, 216, 130, 0.13);
+  --weather-bg-start: #304449;
+}
+
+html[data-theme="dark"] .weather-kind-cloud {
+  --weather-accent: #c2d3dc;
+  --weather-bg-end: #17242b;
+  --weather-bg-glow: rgba(194, 211, 220, 0.1);
+  --weather-bg-start: #2a3c46;
+}
+
+html[data-theme="dark"] .weather-kind-drizzle,
+html[data-theme="dark"] .weather-kind-rain {
+  --weather-accent: #8fdcf0;
+  --weather-bg-end: #12303b;
+  --weather-bg-glow: rgba(143, 220, 240, 0.14);
+  --weather-bg-start: #0d3f50;
+}
+
+html[data-theme="dark"] .weather-kind-snow,
+html[data-theme="dark"] .weather-kind-sleet {
+  --weather-accent: #cae8ff;
+  --weather-bg-end: #182c3a;
+  --weather-bg-glow: rgba(202, 232, 255, 0.14);
+  --weather-bg-start: #29475b;
+}
+
+html[data-theme="dark"] .weather-kind-storm {
+  --weather-accent: #cfc4ff;
+  --weather-bg-end: #211d35;
+  --weather-bg-glow: rgba(207, 196, 255, 0.13);
+  --weather-bg-start: #373152;
+}
+
+html[data-theme="dark"] .weather-kind-fog {
+  --weather-accent: #c9d5ce;
+  --weather-bg-end: #1e2724;
+  --weather-bg-glow: rgba(201, 213, 206, 0.1);
+  --weather-bg-start: #343e3a;
+}
