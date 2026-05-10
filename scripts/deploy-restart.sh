@@ -21,7 +21,7 @@ rsync -av --delete \
   "$PI_HOST:$APP_DIR/"
 
 echo "Installing and starting Family Display service..."
-remote "mkdir -p /home/pi/.config/autostart && cp '$APP_DIR/scripts/kiosk/family-display-kiosk.desktop' /home/pi/.config/autostart/family-display-kiosk.desktop && chmod +x '$APP_DIR/scripts/kiosk/start-kiosk.sh' '$APP_DIR/scripts/native/start-gtk-demo.sh' '$APP_DIR/scripts/systemd/start-server.sh' && sudo cp '$APP_DIR/scripts/systemd/family-display.service' /etc/systemd/system/family-display.service && sudo systemctl daemon-reload && sudo systemctl enable family-display.service && sudo systemctl restart family-display.service"
+remote "mkdir -p /home/pi/.config/autostart && cp '$APP_DIR/scripts/kiosk/family-display-kiosk.desktop' /home/pi/.config/autostart/family-display-kiosk.desktop && chmod +x '$APP_DIR/scripts/kiosk/start-kiosk.sh' '$APP_DIR/scripts/systemd/start-server.sh' && sudo cp '$APP_DIR/scripts/systemd/family-display.service' /etc/systemd/system/family-display.service && sudo systemctl daemon-reload && sudo systemctl enable family-display.service && sudo systemctl restart family-display.service"
 
 echo "Restarting kiosk browser..."
 remote "DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority nohup '$APP_DIR/scripts/kiosk/start-kiosk.sh' >/tmp/family-display-kiosk.log 2>&1 &"

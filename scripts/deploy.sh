@@ -12,6 +12,6 @@ rsync -av --delete \
   "$LOCAL_DIR/" \
   "$PI_HOST:$APP_DIR/"
 
-ssh "$PI_HOST" "mkdir -p /home/pi/.config/autostart && cp '$APP_DIR/scripts/kiosk/family-display-kiosk.desktop' /home/pi/.config/autostart/family-display-kiosk.desktop && chmod +x '$APP_DIR/scripts/kiosk/start-kiosk.sh' '$APP_DIR/scripts/native/start-gtk-demo.sh' '$APP_DIR/scripts/systemd/start-server.sh' && sudo cp '$APP_DIR/scripts/systemd/family-display.service' /etc/systemd/system/family-display.service && sudo systemctl daemon-reload && sudo systemctl enable --now family-display.service && sudo systemctl restart family-display.service"
+ssh "$PI_HOST" "mkdir -p /home/pi/.config/autostart && cp '$APP_DIR/scripts/kiosk/family-display-kiosk.desktop' /home/pi/.config/autostart/family-display-kiosk.desktop && chmod +x '$APP_DIR/scripts/kiosk/start-kiosk.sh' '$APP_DIR/scripts/systemd/start-server.sh' && sudo cp '$APP_DIR/scripts/systemd/family-display.service' /etc/systemd/system/family-display.service && sudo systemctl daemon-reload && sudo systemctl enable --now family-display.service && sudo systemctl restart family-display.service"
 
 echo "Deployed to $PI_HOST:$APP_DIR"
