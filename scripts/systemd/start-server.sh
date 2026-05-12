@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-APP_PUBLIC_DIR="/home/pi/family-display/public"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+APP_DIR="${APP_DIR:-$(cd "$SCRIPT_DIR/../.." && pwd)}"
+APP_PUBLIC_DIR="${APP_PUBLIC_DIR:-$APP_DIR/public}"
 IP_ADDRESS=""
 
 for _ in {1..30}; do
@@ -19,4 +21,4 @@ window.FAMILY_DISPLAY_DEVICE = {
 EOF
 
 cd "$APP_PUBLIC_DIR"
-exec /usr/bin/python3 /home/pi/family-display/scripts/systemd/gpio_server.py
+exec /usr/bin/python3 "$APP_DIR/scripts/systemd/gpio_server.py"

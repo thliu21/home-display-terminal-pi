@@ -6,10 +6,14 @@ xset s off || true
 xset s noblank || true
 
 CACHE_BUSTER="$(date +%s)"
-KIOSK_PROFILE="/home/pi/.cache/family-display-kiosk"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+APP_DIR="${APP_DIR:-$(cd "$SCRIPT_DIR/../.." && pwd)}"
+KIOSK_PROFILE="${XDG_CACHE_HOME:-$HOME/.cache}/family-display-kiosk"
 mkdir -p "$KIOSK_PROFILE"
 
-exec chromium-browser \
+CHROMIUM_BIN="$(command -v chromium-browser || command -v chromium)"
+
+exec "$CHROMIUM_BIN" \
   --user-data-dir="$KIOSK_PROFILE" \
   --no-first-run \
   --disable-restore-session-state \

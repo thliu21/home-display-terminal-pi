@@ -36,6 +36,40 @@ From the `family-display` folder, regenerate the Caltrain commute CSV after upda
 python3 scripts/build-caltrain-commute.py
 ```
 
+## Rust/Iced Demo
+
+The Rust/Iced app is the native kiosk version of the family display. It shares
+the web app configuration and data files, uses live Open-Meteo weather, and
+stores display settings in the Pi user's config directory.
+
+```bash
+cd family-display/iced-demo
+cargo run
+```
+
+The app reads:
+
+- `public/app-config.js`
+- `public/data/caltrain-commute.csv`
+- `public/data/calendar-events.json`
+
+Settings are saved to:
+
+- `$XDG_CONFIG_HOME/family-display/settings.json`
+- `~/.config/family-display/settings.json` when `XDG_CONFIG_HOME` is not set
+
+Controls match the six-key panel navigation experiment:
+
+- `F`, `Space`, or right arrow: next screen
+- `E` or left arrow: previous screen
+- `T`: cycle light, dark, and auto themes
+
+Deploy, build, stop the web kiosk, and launch the Rust/Iced app in one step:
+
+```bash
+PI_HOST=homepi5 ./scripts/iced/deploy-iced-demo.sh
+```
+
 ## Pi Deploy
 
 ```bash
