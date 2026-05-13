@@ -2,7 +2,7 @@ window.FAMILY_DISPLAY_CONFIG = {
   title: "Home Display",
   autoRotate: {
     enabled: true,
-    seconds: 12
+    seconds: 60
   },
   weatherRefreshMinutes: 20,
   caltrainDataUrl: "./data/caltrain-commute.csv",

@@ -36,6 +36,7 @@ let weatherTimer = null;
 let themeTimer = null;
 let toastTimer = null;
 let caltrainStateTimer = null;
+let viewTransitionTimer = null;
 
 const weatherCodes = new Map([
   [0, ["Clear", "sun"]],
@@ -161,10 +162,28 @@ function start() {
 }
 
 function showView(view) {
-  activeView = appViews.includes(view) ? view : "weather";
-  screens.forEach((screen) => {
-    screen.classList.toggle("screen-active", screen.dataset.screen === activeView);
+  const nextView = appViews.includes(view) ? view : "weather";
+  const previousView = activeView;
+  if (nextView === previousView) return;
+
+  activeView = nextView;
+  window.clearTimeout(viewTransitionTimer);
+  const previousScreen = screens.find((screen) => screen.dataset.screen === previousView);
+  const nextScreen = screens.find((screen) => screen.dataset.screen === nextView);
+
+  screens.forEach((screen) => screen.classList.remove("screen-entering", "screen-exiting", "screen-leaving"));
+  previousScreen?.classList.add("screen-leaving");
+  nextScreen?.classList.add("screen-entering");
+
+  window.requestAnimationFrame(() => {
+    previousScreen?.classList.remove("screen-active", "screen-leaving");
+    previousScreen?.classList.add("screen-exiting");
+    nextScreen?.classList.remove("screen-entering");
+    nextScreen?.classList.add("screen-active");
   });
+  viewTransitionTimer = window.setTimeout(() => {
+    screens.forEach((screen) => screen.classList.remove("screen-exiting"));
+  }, 280);
   navButtons.forEach((button) => {
     button.classList.toggle("nav-button-active", button.dataset.target === activeView);
   });
@@ -654,7 +673,7 @@ function getLocationLabel(location) {
 function getRotationSettings() {
   const defaults = {
     enabled: config.autoRotate?.enabled ?? Boolean(config.autoRotateSeconds),
-    seconds: config.autoRotate?.seconds ?? config.autoRotateSeconds ?? 45
+    seconds: config.autoRotate?.seconds ?? config.autoRotateSeconds ?? 60
   };
   const settings = getStoredSettings();
   return {
@@ -674,12 +693,12 @@ function getStoredSettings() {
 function loadSettingsForm() {
   const rotation = getRotationSettings();
   autoRotateEnabled.checked = Boolean(rotation.enabled);
-  autoRotateSeconds.value = String(rotation.seconds || 45);
+  autoRotateSeconds.value = String(rotation.seconds || 60);
   applyThemeFromMode(getThemeSetting());
 }
 
 function saveRotationSettings() {
-  const seconds = Math.max(10, Math.min(600, Number(autoRotateSeconds.value) || 45));
+  const seconds = Math.max(10, Math.min(600, Number(autoRotateSeconds.value) || 60));
   saveStoredSettings({
     enabled: autoRotateEnabled.checked,
     seconds

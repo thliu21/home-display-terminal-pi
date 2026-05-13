@@ -121,17 +121,37 @@ h1 {
 }
 
 .screen {
-  display: none;
   grid-area: 2 / 1;
   height: 100%;
   min-height: 0;
+  opacity: 0;
   overflow: hidden;
   pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 260ms ease, transform 260ms ease;
+  visibility: hidden;
+}
+
+.screen-active,
+.screen-entering,
+.screen-exiting,
+.screen-leaving {
+  visibility: visible;
+}
+
+.screen-active,
+.screen-leaving {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .screen-active {
-  display: block;
   pointer-events: auto;
+}
+
+.screen-exiting {
+  opacity: 0;
+  transform: translateY(-8px);
 }
 
 .weather-grid,
