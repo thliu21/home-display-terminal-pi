@@ -12,8 +12,8 @@
         document.documentElement.dataset.theme = "dark";
       }
     </script>
-    <link rel="stylesheet" href="./styles.css?v=45">
-    <link rel="stylesheet" href="./weather-theme.css?v=45">
+    <link rel="stylesheet" href="./styles.css?v=51">
+    <link rel="stylesheet" href="./weather-theme.css?v=51">
   </head>
   <body>
     <main class="app-shell" aria-live="polite">
@@ -78,11 +78,11 @@
         <button class="nav-button" data-target="settings" type="button">Settings</button>
       </nav>
       <div class="device-ip" id="device-ip">IP --</div>
-      <div class="toast" id="save-toast" hidden>Settings saved</div>
+      <div class="app-toast" id="app-toast" hidden></div>
     </main>
 
-    <script src="./app-config.js?v=45"></script>
-    <script src="./device-info.js?v=45"></script>
-    <script src="./app.js?v=45"></script>
+    <script src="./app-config.js?v=51"></script>
+    <script src="./device-info.js?v=51"></script>
+    <script type="module" src="./app.js?v=51"></script>
   </body>
 </html>
